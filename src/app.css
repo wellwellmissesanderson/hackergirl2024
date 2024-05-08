@@ -1,7 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-body {
-    background: 'hotpink';
+.container {
+  overflow: hidden;
+}
+
+.sliding-background {
+  background: "hotpink";
+  height: 500px;
+  width: 5076px;
 }

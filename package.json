@@ -6,17 +6,19 @@
   "scripts": {
     "build:js": "NODE_ENV=development && webpack",
     "build:css": "NODE_ENV=development && postcss --use autoprefixer -o ./dist/index.css ./src/app.css",
-    "dev": "webpack serve",
-    "build": "webpack",
+    "dev": "NODE_ENV=development webpack serve",
+    "build": "NODE_ENV=development webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Heather Anderson",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
     "autoprefixer": "^10.4.19",
     "css-loader": "^7.1.1",
     "postcss": "^8.4.38",
-    "postcss-cli": "^11.0.0",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.5.11",
     "style-loader": "^4.0.0",
@@ -24,5 +26,9 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
