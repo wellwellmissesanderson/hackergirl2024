@@ -1,22 +1,10 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
 import './app.css';
-import './App.jsx';
 
-console.log('hey')
+const root = document.getElementById('root')
 
-// move background
-let on = false;
-document.getElementById('toggle').addEventListener('click', e => {
-  on = !on;
-  console.log('clicked', on);
-
-  document.getElementById('sliding-background').classList.toggle('slide');
-})
-
-// penguin jump
-const penguin = document.getElementById('penguin');
-penguin.addEventListener('click', e => {
-  penguin.classList.toggle('penguin-standing');
-  penguin.classList.toggle('penguin-jumping');
-})
+createRoot(root).render(<App />)
 
 // https://css-tricks.com/books/fundamental-css-tactics/infinite-scrolling-background-image
