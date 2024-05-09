@@ -2,12 +2,32 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-1692px, 0, 0); /* The image width */
+  }
+}
+
 .container {
   overflow: hidden;
 }
 
 .sliding-background {
-  background: "hotpink";
+  background: url("../images/snow2.png") repeat-x;
   height: 500px;
   width: 5076px;
+}
+
+.slide {
+  animation: slide 60s linear infinite;
+}
+
+.toggle-button {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
 }
