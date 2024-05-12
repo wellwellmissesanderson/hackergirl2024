@@ -1,4 +1,6 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useRef, useEffect, useReducer } from 'react';
+import { useFrame, useLoader, Canvas } from "react-three-fiber"
+import GameCanvas from './GameCanvas';
 
 const reducer = (state, action) => {
   console.log({ state, action })
@@ -19,19 +21,18 @@ const reducer = (state, action) => {
 }
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, {
+  const [gameState, dispatch] = useReducer(reducer, {
     penguinJumping: false,
     playing: false,
   });
 
-  console.log({ state });
-
+  // Game event Actions
   const handleBgClick = (e) => {
     dispatch({ type: 'TOGGLE_GAME' })
   }
 
   const handlePenguinJump = (e) => {
-    if (!state.playing) {
+    if (!gameState.playing) {
       return;
     }
 
@@ -41,7 +42,7 @@ const App = () => {
   return (
     <div className="overflow-hidden relative">
       <div
-        className={`sliding-background ${state.playing ? 'slide' : ''}`}
+        className={`sliding-background ${gameState.playing ? 'slide' : ''}`}
       ></div>
 
       <div className="inner absolute w-screen top-0 left-0 p-4 border-2 border-pink-700 z-10 flex flex-col">
@@ -52,14 +53,20 @@ const App = () => {
           </button>
         </div>
 
+        <div id="canvas" className="border-2 border-red-500">
+          <Canvas camera={{ position: [100, 100, 20] }}>
+            <GameCanvas factor={1} />
+          </Canvas>
+        </div>
+
         {/* Scene */}
-        <div className="border-2 h-full border-orange-700 flex">
+        <div className="border-2 h-full border-green-700 flex">
           {/* Penguin  */}
           <button className="border-2 border-purple-500 w-1/3 self-end" type="button" onClick={handlePenguinJump}>
             <img
               className="max-h-44 inline-block"
-              src={`./assets/penguin-${state.penguinJumping ? 'jump' : 'stand'}.png`}
-              alt={`penguin ${state.penguinJumping ? 'jumping' : 'standing'}`}
+              src={`./assets/penguin-${gameState.penguinJumping ? 'jump' : 'stand'}.png`}
+              alt={`penguin ${gameState.penguinJumping ? 'jumping' : 'standing'}`}
             />
           </button>
 
