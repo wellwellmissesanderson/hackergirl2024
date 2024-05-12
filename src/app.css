@@ -2,6 +2,16 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: "Flappy";
+  src: url("./fonts/FB.eot");
+  src: url("./fonts/FB.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/FB.woff") format("woff"),
+    url("./fonts/FB.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @keyframes slide {
   0% {
     transform: translate3d(0, 0, 0);

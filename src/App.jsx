@@ -1,5 +1,7 @@
-import React, { useState, useRef, useEffect, useReducer } from 'react';
+import React, { Suspense, useState, useRef, useEffect, useReducer } from 'react';
 import { useFrame, useLoader, Canvas } from "react-three-fiber"
+import { Html, Hud, OrthographicCamera } from '@react-three/drei'
+
 import GameCanvas from './GameCanvas';
 
 const reducer = (state, action) => {
@@ -53,32 +55,39 @@ const App = () => {
           </button>
         </div>
 
-        <div id="canvas" className="border-2 border-red-500">
+        <div id="canvas" className="border-2 border-red-500 w-full h-full">
           <Canvas camera={{ position: [100, 100, 20] }}>
-            <GameCanvas factor={1} />
+            <Suspense fallback={null}>
+              <Html>
+                <div className="font-mono text-white " style={{ display: gameState.playing ? 'none' : 'block' }}>
+                  Press <kbd>Space</kbd> to Start
+                </div>
+              </Html>
+              <GameCanvas />
+            </Suspense>
           </Canvas>
         </div>
 
         {/* Scene */}
-        <div className="border-2 h-full border-green-700 flex">
-          {/* Penguin  */}
-          <button className="border-2 border-purple-500 w-1/3 self-end" type="button" onClick={handlePenguinJump}>
+        {/* <div className="border-2 h-full border-green-700 flex"> */}
+        {/* Penguin  */}
+        {/* <button className="border-2 border-purple-500 w-1/3 self-end" type="button" onClick={handlePenguinJump}>
             <img
               className="max-h-44 inline-block"
               src={`./assets/penguin-${gameState.penguinJumping ? 'jump' : 'stand'}.png`}
               alt={`penguin ${gameState.penguinJumping ? 'jumping' : 'standing'}`}
             />
-          </button>
+          </button> */}
 
-          {/* Polar Bear  */}
-          <button className="border-2 border-purple-500 w-2/3 self-end" type="button">
+        {/* Polar Bear  */}
+        {/* <button className="border-2 border-purple-500 w-2/3 self-end" type="button">
             <img
               className="h-56 inline-block"
               src={`./assets/polar_bear.png`}
               alt={`polar bear`}
             />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
