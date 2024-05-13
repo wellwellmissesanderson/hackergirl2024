@@ -2,6 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #000000;
+}
+
 @font-face {
   font-family: "Flappy";
   src: url("./fonts/FB.eot");
