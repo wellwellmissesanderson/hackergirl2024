@@ -10,7 +10,7 @@ const App = () => {
     <Suspense fallback={null}>
       <Canvas shadows dpr={dpr}>
         <Environment files="./assets/rustig_koppie_puresky_1k.hdr" background />
-        <OrbitControls />
+        {/* <OrbitControls /> */}
         <Game />
       </Canvas>
     </Suspense>

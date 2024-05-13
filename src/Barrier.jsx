@@ -14,6 +14,7 @@ const ICEBERG = {
   )
 };
 
+
 const GROUND_ITEMS = [
   {
     path: './assets/3d/Iceberg.glb',
@@ -350,7 +351,7 @@ export default function Barrier({ id, position, colliders }) {
       {/* Upper iceberg */}
       {ICEBERG.markup(nodes, materials)}
       {/* Top collider */}
-      <mesh ref={colliderRef[1]} name={'collider1_' + id} position-y={OFFSET} visible={true}>
+      <mesh ref={colliderRef[1]} name={'collider1_' + id} position-y={OFFSET} visible={false}>
         <planeGeometry args={[3, 9, 2, 5]} />
         <meshNormalMaterial wireframe />
       </mesh>
@@ -358,7 +359,7 @@ export default function Barrier({ id, position, colliders }) {
       {/* Lower item */}
       {GROUND_ITEMS[index].markup(groundNodes, groundMaterials)}
       {/* Bottom collider */}
-      <mesh ref={colliderRef[0]} name={'collider0_' + id} position-y={-OFFSET} visible={true}>
+      <mesh ref={colliderRef[0]} name={'collider0_' + id} position-y={-OFFSET} visible={false}>
         {/* args = width, height, widthSegments, heightSegments */}
         {/* Lower items are shorter */}
         {/* <planeGeometry args={[2, 9, 2, 5]} /> */}
