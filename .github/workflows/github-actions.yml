@@ -11,21 +11,14 @@ jobs:
       matrix:
         node-version: [20.x]
     steps:
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 Branch is ${{ github.ref }} and repository is ${{ github.repository }}."
+      - uses: actions/checkout@v4
+
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
-      - name: List files in the repository
+      - name: Build
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "Running webpack serve"
-      - run: npm install
-      - run: npm run build
-      # - run: npm run dev
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          npm install
+          npx webpack
