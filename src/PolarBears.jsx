@@ -9,11 +9,14 @@ const positions = [...Array(51)].map((_, i) => ({
   position: [i * 10 - 250, nextRandom(1) * (5 + i / 7.5) + 3, 0]
 }))
 
+console.log('Pipes', { positions })
+
 export default function PolarBears({ colliders }) {
   const ref = useRef()
+  console.log('Pipes', { colliders });
 
   return (
-    <group ref={ref} name="pipes">
+    <group ref={ref} name="bears">
       {positions.map(({ position }, i) => (
         <Bear key={i} id={i} position={position} colliders={colliders} />
       ))}

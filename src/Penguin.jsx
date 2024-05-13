@@ -1,8 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 
+// const PATH = '/assets/3d/PolarBear_LOD1.glb';
+const PATH = '/assets/3d/Penguin_LOD0.glb';
+
 export default function Penguin({ crashed = false, color = 'green' }) {
-  const { nodes, materials } = useGLTF('/assets/3d/Penguin_LOD0.glb')
+  const { nodes, materials } = useGLTF(PATH)
 
   let primary, secondary, tertiary
   switch (color) {
@@ -51,4 +54,5 @@ export default function Penguin({ crashed = false, color = 'green' }) {
   )
 }
 
-useGLTF.preload('/assets/3d/Penguin_LOD0.glb')
+
+useGLTF.preload(PATH)

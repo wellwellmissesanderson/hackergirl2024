@@ -49,7 +49,6 @@ export default function Player({ colliders }) {
     const nextPipeID = Math.floor((model.current.position.x - 5) / 10 + 26) //only checking nearest pipe
     for (let i = 0; i < 2; i++) {
       if (!crashed && nextPipeID > -1) {
-        console.log(nextPipeID)
         const pipeCollider = colliders['collider' + i + '_' + nextPipeID]
         const positions = pipeCollider.geometry.attributes.position.array
         for (let j = 0; j < positions.length; j += 3) {
@@ -68,15 +67,15 @@ export default function Player({ colliders }) {
     keyMap['KeyR'] && model.current.position.copy(startPosition) && velocity.set(0, 0, 0) && setCrashed(false)
   })
 
-  console.log('creating player', {
-    colliders,
-    started,
-    crashed,
-    startPosition,
-    velocity,
-    modelPositionY: model.current?.position.y,
-    modelPositionX: model.current?.position.x,
-  });
+  // console.log('creating player', {
+  //   colliders,
+  //   started,
+  //   crashed,
+  //   startPosition,
+  //   velocity,
+  //   modelPositionY: model.current?.position.y,
+  //   modelPositionX: model.current?.position.x,
+  // });
 
   return (
     <>
