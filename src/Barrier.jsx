@@ -345,8 +345,6 @@ export default function Barrier({ id, position, colliders }) {
     colliders[colliderRef[1].current.name] = colliderRef[1].current
   })
 
-  // console.log('can I get size? ', rest)
-
   return (
     <group dispose={null} position={position}>
       {/* Upper iceberg */}
@@ -362,7 +360,7 @@ export default function Barrier({ id, position, colliders }) {
       {/* Bottom collider */}
       <mesh ref={colliderRef[0]} name={'collider0_' + id} position-y={-OFFSET} visible={true}>
         {/* args = width, height, widthSegments, heightSegments */}
-        {/* Lowe items are shorter */}
+        {/* Lower items are shorter */}
         {/* <planeGeometry args={[2, 9, 2, 5]} /> */}
         <planeGeometry args={[2, 4, 2, 3]} />
         <meshNormalMaterial wireframe />
