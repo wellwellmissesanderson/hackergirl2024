@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber'
 import Player from './Player'
-import PolarBears from './PolarBears'
+import Barriers from './Barriers'
 import Scenery from './Scenery'
 
 const Game = () => {
@@ -17,7 +17,7 @@ const Game = () => {
   return (
     <>
       <Scenery />
-      <PolarBears colliders={colliders} />
+      <Barriers colliders={colliders} />
       <Player colliders={colliders} />
       <directionalLight
         ref={lightRef}
@@ -35,10 +35,16 @@ const Game = () => {
 
 export default Game;
 
+// Examples
 // jumping sheep: https://codesandbox.io/p/sandbox/floral-pine-ux3v1?file=%2Fsrc%2FSheep.js%3A46%2C11
 // https://sketchfab.com/heatherandersoncreative/invoices/d1011eb8c7134daab7690cd4988bf503
-// https://polyhaven.com/hdris/outdoor/nature
-// https://sbcode.net/react-three-fiber/environment/
 // flappy bird clone: https://birdmmo.sbcode.net/
 // flappy bird code: https://github.com/Sean-Bradley/BirdMMO/blob/main/src/client/Scenery.jsx
+
+// Assets
+// https://polyhaven.com/hdris/outdoor/nature
+// https://poly.pizza/m/oaDwxwtjij
+// https://sbcode.net/react-three-fiber/environment/
+
+// Tools
 // generate mesh: https://gltf.pmnd.rs/

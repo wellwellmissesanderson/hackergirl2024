@@ -1,35 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-// const PATH = '/assets/3d/PolarBear_LOD1.glb';
 const PATH = '/assets/3d/Penguin_LOD0.glb';
 
-export default function Penguin({ crashed = false, color = 'green' }) {
+export default function Penguin({ crashed = false }) {
   const { nodes, materials } = useGLTF(PATH)
-
-  let primary, secondary, tertiary
-  switch (color) {
-    case 'green':
-      primary = 0x02f8a4
-      secondary = 0x00fa4a
-      tertiary = 0xa6ece4
-      break
-    case 'red':
-      primary = 0xf80256
-      secondary = 0xfa00b0
-      tertiary = 0xeca6ae
-      break
-    case 'blue':
-      primary = 0x02b0f8
-      secondary = 0x00fae8
-      tertiary = 0xa6c8ec
-      break
-    case 'yellow':
-      primary = 0xf8d902
-      secondary = 0xfa8100
-      tertiary = 0xe5eca6
-      break
-  }
 
   const position = [
     -0.25,

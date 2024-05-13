@@ -19,12 +19,12 @@ export default function Overlay({ model, crashed, started }) {
       </Html>
       <Html>
         <div className="py-1 text-5xl font-mono text-white w-72 -ml-[46rem] mt-16" style={{ display: crashed ? 'block' : 'none' }}>
-          Press <span className="border border-white rounded-sm bg-gray-400 p-1 my-1 inline-block">R</span> to re-start
+          Press <span className="border border-white rounded-sm bg-[#8c4ad7] p-1 my-1 inline-block">R</span> to re-start
         </div>
       </Html>
       <Html>
         <div className="py-1 text-5xl font-mono text-white w-72 -ml-[46rem] mt-16" style={{ display: started ? 'none' : 'block' }}>
-          Press <span className="border border-white rounded-sm bg-gray-400 p-1 my-1 inline-block">Space</span> to Start
+          Press <span className="border border-white rounded-sm bg-[#8c4ad7] p-1 my-1 inline-block">Space</span> to Start
         </div>
       </Html>
     </Hud>

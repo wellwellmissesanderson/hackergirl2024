@@ -3,7 +3,7 @@ import { useLoader } from '@react-three/fiber'
 import { TextureLoader, RepeatWrapping } from 'three'
 
 export default function Scenery() {
-  const forest = useLoader(TextureLoader, './assets/forest.png')
+  const forest = useLoader(TextureLoader, './assets/blue_forest.png')
   forest.wrapS = RepeatWrapping
   forest.repeat.set(10, 1)
 
@@ -11,7 +11,7 @@ export default function Scenery() {
   city.wrapS = RepeatWrapping
   city.repeat.set(10, 1)
 
-  const hills = useLoader(TextureLoader, './assets/hills.png')
+  const hills = useLoader(TextureLoader, './assets/blue_hills.png')
   hills.wrapS = RepeatWrapping
   hills.repeat.set(8, 1)
 
@@ -19,7 +19,7 @@ export default function Scenery() {
     <>
       <mesh rotation-x={-Math.PI / 2} receiveShadow>
         <planeGeometry args={[600, 10]}></planeGeometry>
-        <meshStandardMaterial color={'#567d46'} />
+        <meshStandardMaterial color={'#168dc1'} />
       </mesh>
       <mesh position={[0, 1.5, -5]} receiveShadow>
         <planeGeometry args={[600, 4]}></planeGeometry>
