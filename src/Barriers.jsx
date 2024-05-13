@@ -15,10 +15,6 @@ const positions = [...Array(51)].map((_, i) => ({
   // position: [i * 10 - 250, nextRandom(1) * (5 + i / 7.5) + 3, 0]
 }))
 
-positions.forEach(e => {
-  console.log(e.position[1])
-});
-
 export default function Barriers({ colliders }) {
   const ref = useRef()
 
