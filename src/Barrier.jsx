@@ -2,7 +2,7 @@ import { useGLTF } from '@react-three/drei'
 import React, { useEffect, useRef } from 'react'
 
 const ICEBERG = {
-  path: '/assets/3d/Iceberg.glb',
+  path: './assets/3d/Iceberg.glb',
   markup: (nodes, materials) => (
     <group
       position-y={9.5}
@@ -16,7 +16,7 @@ const ICEBERG = {
 
 const GROUND_ITEMS = [
   {
-    path: '/assets/3d/Iceberg.glb',
+    path: './assets/3d/Iceberg.glb',
     markup: (nodes, materials) => (
       <group
         position-y={-10.5}
@@ -27,7 +27,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Icecream.glb',
+    path: './assets/3d/Icecream.glb',
     markup: (nodes, materials) => (
       <group
         position-y={-7.4}
@@ -51,7 +51,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Traffic_Cone.glb',
+    path: './assets/3d/Traffic_Cone.glb',
     markup: (nodes, materials) => (
       <group
         scale={[12, 12, 3]}
@@ -73,7 +73,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Pine_Tree.glb',
+    path: './assets/3d/Pine_Tree.glb',
     markup: (nodes, materials) => (
       <group
         scale={[6, 6, 3]}
@@ -137,7 +137,7 @@ const GROUND_ITEMS = [
     ),
   },
   {
-    path: '/assets/3d/Soda_Can.glb',
+    path: './assets/3d/Soda_Can.glb',
     markup: (nodes, materials) => (
       <group
         scale={[.3, .3, .1]}
@@ -165,7 +165,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Fridge.glb',
+    path: './assets/3d/Fridge.glb',
     markup: (nodes, materials) => (
       <group
         scale={[6, 6, 3]}
@@ -197,7 +197,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Hamburger.glb',
+    path: './assets/3d/Hamburger.glb',
     markup: (nodes, materials) => (
       <group
         scale={[.2, .2, .07]}
@@ -243,7 +243,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Ladder.glb',
+    path: './assets/3d/Ladder.glb',
     markup: (nodes, materials) => (
       <group
         scale={[1, 1, .5]}
@@ -271,7 +271,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Chicken.glb',
+    path: './assets/3d/Chicken.glb',
     markup: (nodes, materials) => (
       <group
         scale={[.015, .015, .01]}
@@ -315,7 +315,7 @@ const GROUND_ITEMS = [
     )
   },
   {
-    path: '/assets/3d/Grater.glb',
+    path: './assets/3d/Grater.glb',
     markup: (nodes, materials) => (
       <group
         scale={[.6, .6, .2]}
