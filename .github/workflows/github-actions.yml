@@ -1,11 +1,11 @@
 name: Flappy Penguin
 # run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: 
+on:
   push:
     branches: [main]
 
 jobs:
-  build-one:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
