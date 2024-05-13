@@ -11,6 +11,7 @@
   },
   "author": "Heather Anderson",
   "license": "ISC",
+  "homepage": "https://github.com/wellwellmissesanderson/hackergirl2024",
   "devDependencies": {
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
