@@ -11,9 +11,8 @@ jobs:
       matrix:
         node-version: [20.x]
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: echo "🔎 Branch is ${{ github.ref }} and repository is ${{ github.repository }}."
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -28,5 +27,5 @@ jobs:
       - run: echo "Running webpack serve"
       - run: npm install
       - run: npm run build
-      - run: npm run dev
+      # - run: npm run dev
       - run: echo "🍏 This job's status is ${{ job.status }}."
