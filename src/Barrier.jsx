@@ -19,7 +19,7 @@ const GROUND_ITEMS = [
     path: '/assets/3d/Iceberg.glb',
     markup: (nodes, materials) => (
       <group
-        position-y={-9.5}
+        position-y={-10.5}
         scale={[.04, .08, .02]}
       >
         <mesh castShadow receiveShadow geometry={nodes.Iceberg.geometry} material={materials.Mat} />
@@ -30,7 +30,7 @@ const GROUND_ITEMS = [
     path: '/assets/3d/Icecream.glb',
     markup: (nodes, materials) => (
       <group
-        position-y={-5.4}
+        position-y={-7.4}
         scale={[1, 1, .6]}
       >
         <mesh
@@ -55,7 +55,7 @@ const GROUND_ITEMS = [
     markup: (nodes, materials) => (
       <group
         scale={[12, 12, 3]}
-        position-y={-5}
+        position-y={-7}
       >
         <mesh
           castShadow
@@ -77,7 +77,7 @@ const GROUND_ITEMS = [
     markup: (nodes, materials) => (
       <group
         scale={[6, 6, 3]}
-        position-y={-4.5}
+        position-y={-6}
       >
         <mesh
           castShadow
@@ -141,7 +141,7 @@ const GROUND_ITEMS = [
     markup: (nodes, materials) => (
       <group
         scale={[.3, .3, .1]}
-        position-y={-5.65}
+        position-y={-6.65}
       >
         <mesh
           castShadow
@@ -168,8 +168,8 @@ const GROUND_ITEMS = [
     path: '/assets/3d/Fridge.glb',
     markup: (nodes, materials) => (
       <group
-        scale={[7, 7, 4]}
-        position-y={-4}
+        scale={[6, 6, 3]}
+        position-y={-6}
       >
         <group
           rotation={[0, 2, 0]}
@@ -201,7 +201,7 @@ const GROUND_ITEMS = [
     markup: (nodes, materials) => (
       <group
         scale={[.2, .2, .07]}
-        position-y={-4.5}
+        position-y={-6.5}
       >
         <mesh
           castShadow
@@ -247,7 +247,7 @@ const GROUND_ITEMS = [
     markup: (nodes, materials) => (
       <group
         scale={[1, 1, .5]}
-        position-y={-4.7}
+        position-y={-6.7}
       >
         <mesh
           castShadow
@@ -275,7 +275,7 @@ const GROUND_ITEMS = [
     markup: (nodes, materials) => (
       <group
         scale={[.015, .015, .01]}
-        position-y={-5.5}
+        position-y={-7}
       >
         <group
           rotation-y={0}
@@ -314,13 +314,30 @@ const GROUND_ITEMS = [
       </group>
     )
   },
+  {
+    path: '/assets/3d/Grater.glb',
+    markup: (nodes, materials) => (
+      <group
+        scale={[.6, .6, .2]}
+        position-y={-7}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.cutensils_box_grater_Cube132.geometry}
+          material={materials['Solid.100']}
+        />
+      </group>
+    )
+  },
 ];
+const OFFSET = 7.05;
 
 export default function Barrier({ id, position, colliders }) {
   const colliderRef = [useRef(), useRef()]
   const index = Math.floor(Math.random() * Object.entries(GROUND_ITEMS).length);
-  // const index = 1;
-  const { nodes, materials } = useGLTF(ICEBERG.path)
+  // const index = 9;
+  const { nodes, materials, ...rest } = useGLTF(ICEBERG.path)
   const { nodes: groundNodes, materials: groundMaterials } = useGLTF(GROUND_ITEMS[index].path)
 
   useEffect(() => {
@@ -328,12 +345,14 @@ export default function Barrier({ id, position, colliders }) {
     colliders[colliderRef[1].current.name] = colliderRef[1].current
   })
 
+  // console.log('can I get size? ', rest)
+
   return (
     <group dispose={null} position={position}>
       {/* Upper iceberg */}
       {ICEBERG.markup(nodes, materials)}
       {/* Top collider */}
-      <mesh ref={colliderRef[1]} name={'collider1_' + id} position-y={7.05} visible={false}>
+      <mesh ref={colliderRef[1]} name={'collider1_' + id} position-y={OFFSET} visible={true}>
         <planeGeometry args={[3, 9, 2, 5]} />
         <meshNormalMaterial wireframe />
       </mesh>
@@ -341,9 +360,11 @@ export default function Barrier({ id, position, colliders }) {
       {/* Lower item */}
       {GROUND_ITEMS[index].markup(groundNodes, groundMaterials)}
       {/* Bottom collider */}
-      <mesh ref={colliderRef[0]} name={'collider0_' + id} position-y={-7.05} visible={true}>
+      <mesh ref={colliderRef[0]} name={'collider0_' + id} position-y={-OFFSET} visible={true}>
         {/* args = width, height, widthSegments, heightSegments */}
-        <planeGeometry args={[2, 9, 2, 5]} />
+        {/* Lowe items are shorter */}
+        {/* <planeGeometry args={[2, 9, 2, 5]} /> */}
+        <planeGeometry args={[2, 4, 2, 3]} />
         <meshNormalMaterial wireframe />
       </mesh>
     </group>
