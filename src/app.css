@@ -19,26 +19,3 @@ body,
   font-weight: normal;
   font-style: normal;
 }
-
-@keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-1692px, 0, 0); /* The image width */
-  }
-}
-
-.sliding-background {
-  background: url("../images/snow2.png") repeat-x;
-  height: 500px;
-  width: 5076px;
-}
-
-.slide {
-  animation: slide 60s linear infinite;
-}
-
-.inner {
-  height: 500px;
-}
