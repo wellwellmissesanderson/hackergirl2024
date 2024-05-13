@@ -1,7 +1,7 @@
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-const PATH = './assets/3d/Penguin_LOD0.glb';
+const PATH = '/dist/assets/3d/Penguin_LOD0.glb';
 
 export default function Penguin({ crashed = false }) {
   const { nodes, materials } = useGLTF(PATH)
