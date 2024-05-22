@@ -18,7 +18,8 @@ export default function Player({ colliders }) {
 
   useFrame((state, delta) => {
     if (!crashed) {
-      keyMap['Space'] && (velocity.y = 10) && setStarted(true)
+      // keyMap['Space'] && (velocity.y = 10) && setStarted(true)
+      keyMap['mousedown'] && (velocity.y = 10) && setStarted(true)
     }
 
     let damping = Math.exp(-4 * delta) - 1
@@ -66,16 +67,6 @@ export default function Player({ colliders }) {
 
     keyMap['KeyR'] && model.current.position.copy(startPosition) && velocity.set(0, 0, 0) && setCrashed(false)
   })
-
-  // console.log('creating player', {
-  //   colliders,
-  //   started,
-  //   crashed,
-  //   startPosition,
-  //   velocity,
-  //   modelPositionY: model.current?.position.y,
-  //   modelPositionX: model.current?.position.x,
-  // });
 
   return (
     <>

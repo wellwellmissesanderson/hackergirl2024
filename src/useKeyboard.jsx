@@ -1,18 +1,29 @@
 import { useRef, useEffect } from 'react'
 
-// handles keyboard events
+const EVENTS = [
+  'mouseup',
+  'mousedown',
+  'keyup',
+  'keydown',
+]
+
+// handles keyboard and mouse events
 export default function useKeyboard() {
   const keyMap = useRef({})
 
   useEffect(() => {
-    const onDocumentKey = (e) => {
+    const onDocumentAction = (e) => {
+      // console.log({ innerText: e.target.innerText, tagName: e.target.tagName })
       keyMap.current[e.code] = e.type === 'keydown'
+
+      if (e.target?.tagName === 'BUTTON' && e.target.innerText.toLowerCase() === 'jump') {
+        keyMap.current['mousedown'] = e.type === 'mousedown'
+      }
     }
-    document.addEventListener('keydown', onDocumentKey)
-    document.addEventListener('keyup', onDocumentKey)
+    EVENTS.forEach(event => document.addEventListener(event, onDocumentAction))
+
     return () => {
-      document.removeEventListener('keydown', onDocumentKey)
-      document.removeEventListener('keyup', onDocumentKey)
+      EVENTS.forEach(event => document.removeEventListener(event, onDocumentAction))
     }
   })
 

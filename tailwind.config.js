@@ -7,6 +7,11 @@ module.exports = {
     },
     extend: {},
   },
+  safelist: [
+    {
+      pattern: /(bottom|top|left|right|opacity)-.+/,
+    },
+  ],
   variants: {
     extend: {},
   },

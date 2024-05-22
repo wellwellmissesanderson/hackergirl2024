@@ -2,12 +2,14 @@ import React, { Suspense, useState } from 'react';
 import { Canvas } from "react-three-fiber"
 import { Environment, OrbitControls } from '@react-three/drei'
 import Game from './Game';
+import Scrim from './Scrim';
 
 const App = () => {
   const [dpr, setDpr] = useState(0.5)
 
   return (
     <Suspense fallback={null}>
+      <Scrim />
       <Canvas shadows dpr={dpr}>
         <Environment files="./assets/rustig_koppie_puresky_1k.hdr" background />
         {/* <OrbitControls /> */}

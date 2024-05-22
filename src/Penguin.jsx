@@ -7,7 +7,7 @@ export default function Penguin({ crashed = false }) {
   const { nodes, materials } = useGLTF(PATH)
 
   const position = [
-    -0.25,
+    crashed ? 0.5 : -0.25,
     crashed ? 0 : -0.45,
     0
   ]
