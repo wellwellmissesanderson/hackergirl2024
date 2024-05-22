@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 export default function Scrim() {
-  const [value, setValue] = useState(45)
+  const [value, setValue] = useState(0)
 
   return (
     <>
