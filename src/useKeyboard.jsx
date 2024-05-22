@@ -20,6 +20,7 @@ export default function useKeyboard() {
         keyMap.current['mousedown'] = e.type === 'mousedown'
       }
     }
+
     EVENTS.forEach(event => document.addEventListener(event, onDocumentAction))
 
     return () => {
